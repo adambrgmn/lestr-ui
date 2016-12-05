@@ -17,5 +17,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build && node bin/deploy.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adambrgmn/lestr-ui.git"
+  },
+  "license": "MIT"
 }

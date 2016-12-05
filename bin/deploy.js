@@ -1,5 +1,20 @@
-const ghPages = require('gh-pages');
+const url = require('url');
 const path = require('path');
+const ghPages = require('gh-pages');
+const packageJson = require('../package.json');
+
+const reformatUrl = (repo, auth) => {
+  if (!auth) {
+    const err = new Error('No token for GitHub provided');
+    throw err;
+  }
+
+  const parsedUrl = url.parse(repo);
+  const updatedUrl = Object.assign({}, parsedUrl, { auth, protocol: 'https:' });
+
+  return url.format(updatedUrl);
+}
+
 
 const directory = path.join(__dirname, '..', 'build');
 const options = {
@@ -7,14 +22,12 @@ const options = {
     name: 'TravisCI',
     mail: 'adam@fransvilhelm.com',
   },
-  repo: `https://${process.env.GH_TOKEN}@${process.env.GH_REF}`,
+  repo: reformatUrl(packageJson.repository.url, process.env.GH_TOKEN),
 };
 
 ghPages.publish(directory, options, (err) => {
-  if (err) {
-    console.error(err);
-    return process.exit(1);
-  }
-  console.log('SUCCESSFULLY deployed to GitHub pages');
+  if (err) throw err;
+
+  console.log('Successfully deployed to GitHub pages');
   process.exit();
 });
