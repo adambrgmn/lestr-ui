@@ -7,9 +7,7 @@ const options = {
     name: 'TravisCI',
     mail: 'adam@fransvilhelm.com',
   },
-  repo: {
-    `https://${process.env.GH_TOKEN}@${process.env.GH_REF}`,
-  }
+  repo: `https://${process.env.GH_TOKEN}@${process.env.GH_REF}`,
 };
 
 ghPages.publish(directory, options, (err) => {
