@@ -7,9 +7,16 @@ const options = {
     name: 'TravisCI',
     mail: 'adam@fransvilhelm.com',
   },
+  repo: {
+    `https://${process.env.GH_TOKEN}@${process.env.GH_REF}`,
+  }
 };
 
 ghPages.publish(directory, options, (err) => {
-  if (err) console.error(err);
-  console.log('SUCCESSFULLY deployd to GitHub pages');
+  if (err) {
+    console.error(err);
+    return process.exit(1);
+  }
+  console.log('SUCCESSFULLY deployed to GitHub pages');
+  process.exit();
 });
