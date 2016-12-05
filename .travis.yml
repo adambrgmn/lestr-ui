@@ -2,5 +2,4 @@ language: node_js
 node_js:
   - "6"
 script:
-  - npm run build
-  - bash ./bin/deploy.sh
+  - yarn run deploy
