@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-- '6'
+  - '6'
 script:
-- yarn run deploy
+  - yarn run deploy
 branches:
   only:
-  - master
+    - master
 notifications:
   email: false
   slack:
