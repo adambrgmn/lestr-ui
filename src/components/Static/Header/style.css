@@ -1,0 +1,12 @@
+.header {
+  color: var(--color-white);
+  fill: var(--color-white);
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.header-logotype {}
+
+.header-title {}
