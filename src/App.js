@@ -12,7 +12,7 @@ import Header from './components/Static/Header';
 import Navigation from './components/Static/Navigation';
 import Main from './components/Static/Main';
 
-import { WrappedComponent as Reactions } from './components/Reactions';
+import Reactions from './wrappedComponents/Reactions';
 
 const Home = () => (<h1>Start</h1>);
 
