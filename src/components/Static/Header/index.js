@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import './style.css';
 
 const Header = () => (
@@ -10,7 +11,9 @@ const Header = () => (
       </svg>
     </div>
 
-    <h1 className="header-title f2 lh-solid dib ma0 ml2 normal">Lestr UI</h1>
+    <h1 className="header-title f2 lh-solid dib ma0 ml2 normal">
+      <Link to="/" className="link hover-orange white">Lestr UI</Link>
+    </h1>
   </header>
 );
 

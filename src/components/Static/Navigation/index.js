@@ -1,24 +1,32 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router';
+import descriptionToUrl from '../../../utils/descriptionToUrl';
 import './style.css';
 
 type NavItem = {
-  text: string,
+  description: string,
   link: string,
 };
 
 type NavItems = NavItem[]
 
+const mapNavItems = (navItems: NavItems) => navItems.map(({ description }) => (
+  <li key={description} className="navigation-list__item mv1">
+    <Link
+      to={descriptionToUrl(description)}
+      className="navigation-list__link link underline-hover white hover-orange"
+      activeClassName="orange"
+    >
+      {description}
+    </Link>
+  </li>
+));
+
 const Navigation = ({ navItems }: { navItems: NavItems }) => (
   <nav className="navigation">
     <ul className="navigation-list list pl3 ma0">
-      {navItems.map(({ text, link }) => (
-        <li key={link} className="navigation-list__item mv1">
-          <a href={link} className="navigation-list__link link underline-hover white hover-orange">
-            {text}
-          </a>
-        </li>
-      ))}
+      {mapNavItems(navItems)}
     </ul>
   </nav>
 );

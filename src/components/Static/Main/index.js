@@ -3,7 +3,7 @@ import React from 'react';
 import './style.css';
 
 type Props = {
-  children?: Element<any>,
+  children?: React$Element<any>,
 };
 
 const Main = ({ children }: Props) => (
