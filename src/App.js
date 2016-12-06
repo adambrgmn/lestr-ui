@@ -1,6 +1,8 @@
 // @flow
 
 import React, { Component } from 'react';
+import { BrowserRouter, Match } from 'react-router';
+import descriptionToUrl from './utils/descriptionToUrl';
 
 import 'tachyons';
 import './App.css';
@@ -10,25 +12,38 @@ import Header from './components/Static/Header';
 import Navigation from './components/Static/Navigation';
 import Main from './components/Static/Main';
 
+import { WrappedComponent as Reactions } from './components/Reactions';
+
+const Home = () => (<h1>Start</h1>);
+
+const mapRoutes = (routes) => routes.map(({ description, Component }) => (
+  <Match key={description} pattern={descriptionToUrl(description)} component={Component} />
+));
 
 class App extends Component {
   render() {
-    let i = 0;
-    let navItems = [];
-    for (i; i < 50; i += 1) {
-      navItems = [...navItems, { text: `Component ${i}`, link: `/component${i}` }];
-    }
+
+    const routes = [
+      {
+        description: 'Reactions',
+        link: '/reactions',
+        Component: Reactions,
+      },
+    ];
 
     return (
-      <div className="container w-100 sans-serif">
-        <Sidebar>
-          <Header />
-          <Navigation navItems={navItems} />
-        </Sidebar>
-        <Main>
-          <div>Hello world</div>
-        </Main>
-      </div>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <div className="container w-100 sans-serif">
+          <Sidebar>
+            <Header />
+            <Navigation navItems={routes} />
+          </Sidebar>
+          <Main>
+            <Match exactly pattern="/" component={Home} />
+            {mapRoutes(routes)}
+          </Main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
