@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router';
+import { upperFirst } from 'lodash';
 import descriptionToUrl from '../../../utils/descriptionToUrl';
 import './style.css';
 
@@ -17,7 +18,7 @@ const mapNavItems = (navItems: NavItems) => navItems.map(({ description }) => (
       className="navigation-list__link link underline-hover white hover-orange"
       activeClassName="orange"
     >
-      {description}
+      {upperFirst(description)}
     </Link>
   </li>
 ));
