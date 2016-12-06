@@ -1,19 +1,48 @@
+// @flow
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Match } from 'react-router';
+import descriptionToUrl from './utils/descriptionToUrl';
+
+import 'tachyons';
 import './App.css';
+
+import Sidebar from './components/Static/Sidebar';
+import Header from './components/Static/Header';
+import Navigation from './components/Static/Navigation';
+import Main from './components/Static/Main';
+
+import { WrappedComponent as Reactions } from './components/Reactions';
+
+const Home = () => (<h1>Start</h1>);
+
+const mapRoutes = (routes) => routes.map(({ description, Component }) => (
+  <Match key={description} pattern={descriptionToUrl(description)} component={Component} />
+));
 
 class App extends Component {
   render() {
+
+    const routes = [
+      {
+        description: 'Reactions',
+        Component: Reactions,
+      },
+    ];
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <div className="container w-100 sans-serif">
+          <Sidebar>
+            <Header />
+            <Navigation navItems={routes} />
+          </Sidebar>
+          <Main>
+            <Match exactly pattern="/" component={Home} />
+            {mapRoutes(routes)}
+          </Main>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </BrowserRouter>
     );
   }
 }
