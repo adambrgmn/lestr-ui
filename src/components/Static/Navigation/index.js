@@ -6,7 +6,6 @@ import './style.css';
 
 type NavItem = {
   description: string,
-  link: string,
 };
 
 type NavItems = NavItem[]
