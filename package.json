@@ -28,5 +28,8 @@
     "type": "git",
     "url": "git+https://github.com/adambrgmn/lestr-ui.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "react-app"
+  }
 }
