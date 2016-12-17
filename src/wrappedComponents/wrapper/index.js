@@ -31,7 +31,7 @@ const wrapper = (componentProps: ComponentPropsArray) => (ComposedComponent: Rea
           <nav className="wrapper-navigation mb3 bb pb2">
             <ul className="wrapper-navigation__list list pa0 ma0">
               <li className="wrapper-navigation__list-item light-silver dib">States:</li>
-              {componentProps.map((state, i) => {
+              {componentProps.map((state) => {
                 const isActive = (this.state.componentProps.name === state.name);
                 const cxButton = {
                   'wrapper-navigation__button': true,

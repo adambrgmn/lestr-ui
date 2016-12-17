@@ -3,7 +3,7 @@
 import wrapper from './wrapper';
 import Reactions from '../components/Reactions';
 
-const onReaction = (reaction) => console.log(reaction);
+const onReaction = (e) => console.log(e);
 const states = [
   {
     name: 'No reaction',
@@ -14,7 +14,7 @@ const states = [
   {
     name: 'With reaction count',
     props: {
-      reactionCount: 138,
+      reactionCount: Math.floor(Math.random() * 100),
       onReaction,
     }
   },

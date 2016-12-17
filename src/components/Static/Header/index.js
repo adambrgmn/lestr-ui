@@ -12,7 +12,7 @@ const Header = () => (
     </div>
 
     <h1 className="header-title f2 lh-solid dib ma0 ml2 normal">
-      <Link to="/" className="link hover-orange white">Lestr UI</Link>
+      <Link to="/" className="link hover-gold white">Lestr UI</Link>
     </h1>
   </header>
 );

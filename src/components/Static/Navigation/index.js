@@ -15,8 +15,8 @@ const mapNavItems = (navItems: NavItems) => navItems.map(({ description }) => (
   <li key={description} className="navigation-list__item mv1">
     <Link
       to={descriptionToUrl(description)}
-      className="navigation-list__link link underline-hover white hover-orange"
-      activeClassName="orange"
+      className="navigation-list__link link underline-hover white hover-gold"
+      activeClassName="underline"
     >
       {upperFirst(description)}
     </Link>
