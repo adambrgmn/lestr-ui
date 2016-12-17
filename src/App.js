@@ -32,7 +32,7 @@ class App extends Component {
 
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <div className="container w-100 sans-serif">
+        <div className="container w-100">
           <Sidebar>
             <Header />
             <Navigation navItems={routes} />

@@ -2,3 +2,7 @@
   --color-main: #4ecdc4;
   --color-white: #ffffff;
 }
+
+body {
+  font-family: 'Karla', monospace;
+}
