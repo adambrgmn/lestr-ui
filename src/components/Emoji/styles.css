@@ -1,0 +1,9 @@
+.emoji {
+	display: inline-block;
+	transform: translateY(3px);
+	transition: filter 0.3s ease-in-out;
+}
+
+.emoji.emoji--bw {
+	filter: grayscale(100%);
+}
